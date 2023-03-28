@@ -30,7 +30,7 @@ class Notify:
             server.login(Notify.sender, Notify.sender_password)
             server.send_message(message, Notify.sender, Notify.receiver)
         except smtplib.SMTPException as e:
-            print('(ERROR) Notify : Sending mail failed!')
+            print(f'(ERROR) Notify : {e}')
         finally:
             server.quit()
 
