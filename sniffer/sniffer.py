@@ -65,7 +65,7 @@ class Sniffer:
     def build_packet(self, raw_pkt):
         return Packet(
             raw_pkt.ip.src.hex_value,
-            raw_pkt.ip.src.hex_value,
+            raw_pkt.ip.dst.hex_value,
             raw_pkt.eth.type.hex_value,
             len(raw_pkt)
         )
