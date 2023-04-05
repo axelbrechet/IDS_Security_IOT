@@ -10,31 +10,6 @@ class Packet():
     type    : int # Layer 3 protocol (decimal integers) => IPV4:0x0800=2048
     length  : int
 
-# Circular Buffer
-class Buffer():
-
-    def __init__(self, size):
-        self.size = size
-        self.buffer = [None] * size
-        self.idx = 0
-
-    def __iter__(self):
-        idx = 0
-        while idx < self.size:
-            yield self.buffer[idx]
-            idx += 1
-
-    def __str__(self):
-        result = '-' * 15 + '\n'
-        for idx, item in enumerate(self.buffer):
-            result += f'{idx}: {item}\n'
-        result += '-' * 15 + '\n'
-        return result
-
-    def add(self, elem):
-        self.buffer[self.idx] = elem
-        self.idx = (self.idx + 1) % self.size
-
 class Sniffer:
 
     CAPTURE_TIMEOUT_SEC = 10
