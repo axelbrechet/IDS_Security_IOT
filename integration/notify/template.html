@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+            table {{ border-collapse: collapse;width: 100%; }}
+            td, th {{ border: 1px solid black;text-align: left;padding: 8px; }}
+            b {{ color: red; }}
+        </style>
+    </head>
+    <body>
+        <h3>Intrusion Detection System - Report</h3>
+        <table>
+            <tr>
+              <th>Time</th>
+              <th>Device</th>
+              <th>Attack</th>
+            </tr>
+            <tr>
+              <td>{now}</td>
+              <td>{hostname}</td>
+              <td><b>{attack}</b></td>
+            </tr>
+          </table>
+        <img src="https://www.uqac.ca/wp-content/themes/uqac/assets/images/uqac.svg" style="width:20%;margin-top:20px;">
+    </body>
+</html>
+  
