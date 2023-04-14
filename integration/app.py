@@ -13,8 +13,8 @@ def analyze(buffer):
 
     yhat = model.predict(data, verbose=0)
     probability = yhat[0][0]    
-    if probability > 0.5:
-        print(f'Attack detected with probability {probability}')
-        Notify.send_alert("Unknown attack", probability)
+    if probability > 0.6:
+        print(f'Attack detected with probability {probability:.2f}')
+        #Notify.send_alert("Unknown attack", probability)
 
 sniffer.run(callback=analyze)
