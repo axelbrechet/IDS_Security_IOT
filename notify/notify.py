@@ -15,12 +15,12 @@ class Notify:
     receiver = os.getenv('NOTIFY_EMAIL_RECEIVER')
 
     @staticmethod
-    def send_alert(attack):
+    def send_alert(attack, probability):
         message = MIMEMultipart('alternative')
         message['Subject'] = 'Intrusion Detection Alert'
         message['From'] = Notify.sender
         message['To'] = Notify.receiver
-        html = Notify.create_email_body(attack)
+        html = Notify.create_email_body(attack, probability)
         content = MIMEText(html, 'html')
         message.attach(content)
 
@@ -35,11 +35,11 @@ class Notify:
             server.quit()
 
     @classmethod
-    def create_email_body(cls, attack):
+    def create_email_body(cls, attack, probability):
         now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
         hostname = socket.gethostname()
         html = Notify.get_email_template()
-        return html.format(now=now, hostname=hostname, attack=attack)
+        return html.format(now=now, hostname=hostname, attack=attack, probability=probability)
     
     @classmethod
     def get_email_template(cls):

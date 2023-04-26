@@ -1,3 +1,3 @@
 from notify import Notify
 
-Notify.send_alert("SSH Bruteforce")
+Notify.send_alert("DoS", 0.96)
