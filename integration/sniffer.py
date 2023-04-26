@@ -5,13 +5,13 @@ from dataclasses import dataclass
 # Immutable data class
 @dataclass(frozen=True)
 class Packet():
-    srcaddr     : int
-    dstaddr     : int
-    length      : int
     protocol    : int 
+    length      : int
     srcport     : int
     dstport     : int
     timediff    : int 
+    srcaddr     : int
+    dstaddr     : int
 
 class Sniffer:
 
